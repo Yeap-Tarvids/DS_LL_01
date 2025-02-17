@@ -21,13 +21,14 @@ class LinkedList:
         self.length += 1
         return True
 
-    # WRITE HAS_LOOP METHOD HERE #
-    #                            #
-    #                            #
-    #                            #
-    #                            #
-    ##############################
-    
+    def has_loop(self):
+        slow = fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
     
     
     
@@ -46,7 +47,3 @@ my_linked_list_2.append(2)
 my_linked_list_2.append(3)
 my_linked_list_2.append(4)
 print(my_linked_list_2.has_loop() ) # Returns False
-
-
-
-
